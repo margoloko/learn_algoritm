@@ -31,3 +31,11 @@ def two_sum_sort(arr, x):
         
 #Вариант решения 2-SUM с использованием доп.памяти
 def two_sum_memory(arr, x):
+    temp = set()
+    for i in arr:
+        y = x - i
+        if y in temp:
+            return y, i
+        else:
+            temp.add(i)
+    return None, None
