@@ -1,5 +1,39 @@
+# Сортировка массива по возрасанию
+
+def find_smallest(arr):
+    smallest = arr[0]
+    smallest_index = 0
+    for i in range(1, len(arr)):
+        if i < smallest:
+            smallest = arr[i]
+            smallest_index = i
+        return smallest_index
+
+#Теперь на основе этой функции можно написать функцию сортировки выбором
+
+def selection_sort(arr):
+    new_arr = []
+    for i in range(len(arr)):
+        smallest = find_smallest(arr)
+        new_arr.append(arr.pop(smallest))
+    return new_arr
+
+
 #Ускорение скользящего среднего
 from typing import List, Tuple
+
+
+def binary_search(list, i):
+    low = 0
+    high = len(list)-1
+
+    while low <= high:
+        mid = (low + high) / 2
+        guess = list[mid]
+        if guess == i:
+            return mid
+        if guess > i:
+            
 
 
 def moving_average(arr):
