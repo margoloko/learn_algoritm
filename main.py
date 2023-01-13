@@ -1,5 +1,4 @@
 # Сортировка массива по возрасанию
-
 def find_smallest(arr):
     smallest = arr[0]
     smallest_index = 0
@@ -8,15 +7,30 @@ def find_smallest(arr):
             smallest = arr[i]
             smallest_index = i
         return smallest_index
-
 #Теперь на основе этой функции можно написать функцию сортировки выбором
-
 def selection_sort(arr):
     new_arr = []
     for i in range(len(arr)):
         smallest = find_smallest(arr)
         new_arr.append(arr.pop(smallest))
     return new_arr
+
+# Вставка элемента по индексу
+def get_node_by_index(node, index):
+    while index:
+        node = node.next
+        index -= 1
+    return node
+
+def insert_node(head, index, value):
+    new_node = Node(value)
+    if index == 0:
+        new_node.next = head
+        return new_node
+    previous_node = get_node_by_index(head, index-1)
+    new_node.next = previous_node.next
+    previous_node.next = new_node
+    return head
 
 
 #Ускорение скользящего среднего
